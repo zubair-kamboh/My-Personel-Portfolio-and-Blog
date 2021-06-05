@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: "gatsby_beginner",
   },
+
   plugins: [
-    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -25,8 +25,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-remark`,
-    `gatsby-plugin-material-ui`,
     {
       resolve: `gatsby-theme-material-ui`,
       options: {
@@ -42,5 +40,11 @@ module.exports = {
         },
       },
     },
+
+    `gatsby-plugin-sass`,
+    `gatsby-transformer-remark`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
   ],
 };

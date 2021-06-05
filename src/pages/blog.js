@@ -1,7 +1,7 @@
 import { graphql } from "gatsby";
 import React from "react";
 import Layout from "../components/layout";
-import { Typography, Box, Container } from "@material-ui/core";
+import { Typography, Box, Container, Paper } from "@material-ui/core";
 import { Link } from "gatsby-theme-material-ui";
 
 const blog = ({ data }) => {
@@ -18,7 +18,25 @@ const blog = ({ data }) => {
         Blog
       </Typography>
 
-      <Container fixed style={{ marginBottom: "70px", marginTop: "40px" }}>
+      <Container maxWidth="sm">
+        <Paper>
+          <Box p={2} marginBottom="50px">
+            <Typography variant="h3">
+              Here is
+              <Box component="span" color="secondary.main">
+                my blog
+              </Box>
+            </Typography>
+            <Typography variant="body2">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio
+              consequuntur et adipisci aliquid ea, iure cupiditate modi. Maxime
+              quia neque quod ab necessitatibus corrupti delectus.
+            </Typography>
+          </Box>
+        </Paper>
+      </Container>
+
+      {/* <Container fixed style={{ marginBottom: "70px", marginTop: "40px" }}>
         <Box>
           <Typography variant="h3">This is my heading</Typography>
           <Typography variant="subtitle2">
@@ -37,7 +55,7 @@ const blog = ({ data }) => {
             facilis culpa?
           </Typography>
         </Box>
-      </Container>
+      </Container> */}
 
       {data.allMarkdownRemark.edges.map((post) => {
         return (

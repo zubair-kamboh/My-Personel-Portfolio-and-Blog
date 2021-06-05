@@ -1,25 +1,30 @@
 import * as React from "react";
-import ".././Styles/index.scss";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { Link, Button } from "gatsby-theme-material-ui";
+import { Link, Button, IconButton } from "gatsby-theme-material-ui";
 
-import {
-  createMuiTheme,
-  ThemeProvider,
-  makeStyles,
-} from "@material-ui/core/styles";
+// theme
+import { ThemeProvider, makeStyles } from "@material-ui/core/styles";
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
+
+// ICONS
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import GitHubIcon from "@material-ui/icons/GitHub";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+  },
+  socialIcon: {
+    flexGrow: 1,
+    display: "flex",
+    justifyContent: "flex-end",
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -129,7 +134,7 @@ const Layout = ({ pageTitle }) => {
                       return (
                         <Button
                           variant="contained"
-                          color="secondary"
+                          color="primary"
                           key={id}
                           to={menuItem.path}
                         >
@@ -141,6 +146,42 @@ const Layout = ({ pageTitle }) => {
                 )}
               </div>
             )}
+            <div className={classes.socialIcon}>
+              <IconButton
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                to="https://www.linkedin.com/in/zubair-ali-b8281b174/"
+                target="_blank"
+              >
+                <LinkedInIcon style={{ color: "white", fontSize: 30 }} />
+              </IconButton>
+              <IconButton
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                to="https://www.facebook.com/zubair.kamboh.144/"
+                target="_blank"
+              >
+                <GitHubIcon
+                  style={{ color: "white", fontSize: 30 }}
+                  fontSize="large"
+                  to="https://github.com/zubair-kamboh"
+                />
+              </IconButton>
+              <IconButton
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                to="https://www.facebook.com/zubair.kamboh.144/"
+                target="_blank"
+              >
+                <FacebookIcon
+                  style={{ color: "white", fontSize: 30 }}
+                  fontSize="large"
+                />
+              </IconButton>
+            </div>
           </Toolbar>
         </AppBar>
       </div>
