@@ -31,7 +31,7 @@ const AboutMe = () => {
   return (
     <>
       <Box component="section" className={classes.sectionStyles}>
-        <Container>
+        <Container maxWidth="md">
           <Typography
             variant="h3"
             color="primary"
@@ -41,7 +41,7 @@ const AboutMe = () => {
             About me
           </Typography>
           <Grid container className={classes.imgContainerStyle}>
-            <Grid item xs={12} md={6} className={classes.imgContainerStyle}>
+            <Grid item xs={12} md={6}>
               <StaticImage
                 src="../../images/zubair-picture.png"
                 alt="zubair-ali-best-web-remote-service-provider"
@@ -52,11 +52,11 @@ const AboutMe = () => {
             <Grid item xs={12} md={6}>
               <Box>
                 <Typography>
-                  ✅ PROFESSIONAL FRONT END WEBSITE DEVELOPER specializing in
-                  Javascript, React.Js, and the Front end technologies.
-                  Extensive Experience as a Wordpress Php development
-                  methodically identifying and resolving complex underlying
-                  website problems, using a vast variety of tools and
+                  <span>✅</span> PROFESSIONAL FRONT END WEBSITE DEVELOPER
+                  specializing in Javascript, React.Js, and the Front end
+                  technologies. Extensive Experience as a Wordpress Php
+                  development methodically identifying and resolving complex
+                  underlying website problems, using a vast variety of tools and
                   techniques. I have solved numerous wordpress and code
                   Performance issues such as Speed Optimization, SEO, as well as
                   often re-engineered immensely complex designs and code,

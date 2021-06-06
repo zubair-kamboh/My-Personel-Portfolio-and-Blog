@@ -26,6 +26,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/data/`,
+      },
+    },
+    {
       resolve: `gatsby-theme-material-ui`,
       options: {
         webFontsConfig: {
@@ -41,10 +47,10 @@ module.exports = {
       },
     },
 
-    `gatsby-plugin-sass`,
     `gatsby-transformer-remark`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-transformer-json`,
   ],
 };

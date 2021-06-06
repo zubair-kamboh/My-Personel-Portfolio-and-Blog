@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Portfolio item 1",
+    "img": "./img/1.jpg",
+    "link": "https://www.google.com",
+    "technologies": ["React", "GatsbyJS"]
+  },
+  {
+    "name": "Portfolio item 2",
+    "img": "./img/1.jpg",
+    "link": "https://www.google.com",
+    "technologies": ["React", "GatsbyJS", "Netlify CMS"]
+  }
+]

@@ -44,9 +44,10 @@ const menuItems = [
     path: "/blog",
     name: "Blog",
   },
+
   {
-    path: "/services",
-    name: "Services",
+    path: "/portfolio",
+    name: "Portfolio",
   },
   {
     path: "/about",
@@ -77,7 +78,7 @@ const Layout = ({ pageTitle }) => {
   return (
     <ThemeProvider theme={theme}>
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="fixed">
           <Toolbar>
             <Typography variant="h6" className={classes.title}>
               Zubair Blog
@@ -184,6 +185,7 @@ const Layout = ({ pageTitle }) => {
             </div>
           </Toolbar>
         </AppBar>
+        <Toolbar />
       </div>
     </ThemeProvider>
   );

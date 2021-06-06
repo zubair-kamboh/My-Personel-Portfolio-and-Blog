@@ -6,15 +6,13 @@ import {
   Grid,
   makeStyles,
   Paper,
-  CardActions,
-  CardContent,
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   containerStyles: {
     padding: `${theme.spacing(8)}px 0px`,
     margin: `${theme.spacing(8)}px 0px`,
-    background: "#333333",
+    background: theme.palette.primary.main,
   },
 
   titleStyles: {
@@ -22,8 +20,44 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
   },
 
-  cardStyles: {},
+  cardStyles: {
+    background: "#1F426B",
+    color: "white",
+    padding: theme.spacing(3),
+    textAlign: "left",
+
+    "& .MuiTypography-h5": {
+      paddingBottom: theme.spacing(1),
+    },
+    "& .MuiTypography-body1": {
+      fontWeight: 300,
+    },
+  },
 }));
+
+const cardContent = [
+  {
+    title: "React JS Website",
+    description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Optio natus corporis sint error nulla culpa quibusdam, hic
+                  facilis officia enim possimus molestias quisquam repellendus
+                  doloribus earum eaque id! Provident, nostrum!`,
+  },
+  {
+    title: "Wordpress Website",
+    description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Optio natus corporis sint error nulla culpa quibusdam, hic
+                  facilis officia enim possimus molestias quisquam repellendus
+                  doloribus earum eaque id! Provident, nostrum!`,
+  },
+  {
+    title: "SEO & Optimization",
+    description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Optio natus corporis sint error nulla culpa quibusdam, hic
+                  facilis officia enim possimus molestias quisquam repellendus
+                  doloribus earum eaque id! Provident, nostrum!`,
+  },
+];
 
 const Services = () => {
   const classess = useStyles();
@@ -35,39 +69,16 @@ const Services = () => {
             My Services
           </Typography>
           <Grid container spacing={3}>
-            <Grid item xs={12} md={4}>
-              <Paper>
-                <Typography variant="h6">React JS Website</Typography>
-                <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Optio natus corporis sint error nulla culpa quibusdam, hic
-                  facilis officia enim possimus molestias quisquam repellendus
-                  doloribus earum eaque id! Provident, nostrum!
-                </Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <Paper>
-                <Typography variant="h6">Wordpress Website</Typography>
-                <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Optio natus corporis sint error nulla culpa quibusdam, hic
-                  facilis officia enim possimus molestias quisquam repellendus
-                  doloribus earum eaque id! Provident, nostrum!
-                </Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <Paper>
-                <Typography variant="h6">Seo & Optimization</Typography>
-                <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Optio natus corporis sint error nulla culpa quibusdam, hic
-                  facilis officia enim possimus molestias quisquam repellendus
-                  doloribus earum eaque id! Provident, nostrum!
-                </Typography>
-              </Paper>
-            </Grid>
+            {cardContent.map((cardItem) => {
+              return (
+                <Grid item xs={12} md={4}>
+                  <Paper elevation={5} className={classess.cardStyles}>
+                    <Typography variant="h5">{cardItem.title}</Typography>
+                    <Typography>{cardItem.description}</Typography>
+                  </Paper>
+                </Grid>
+              );
+            })}
           </Grid>
         </Container>
       </Box>

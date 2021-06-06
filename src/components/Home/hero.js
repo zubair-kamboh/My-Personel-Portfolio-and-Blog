@@ -13,7 +13,7 @@ const hero = () => {
               display="flex"
               justifyContent="center"
               alignItems="center"
-              height="90vh"
+              minHeight="90vh"
               background="#000"
               flexDirection={{ xs: "column", md: "row" }}
             >
