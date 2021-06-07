@@ -30,27 +30,29 @@ const IndexPage = () => {
   const classess = useStyles();
   return (
     <>
-      <Layout pageTitle="Home Page" />
-      <Hero />
-      <AboutMe />
-      <Services />
-      {/* Portfolio Section */}
-      <Box className={classess.ContainerStyles}>
-        <Container>
-          <Typography
-            align="center"
-            variant="h3"
-            className={classess.TypographyStyles}
-          >
-            Portfolio
-          </Typography>
-          <Index />
-        </Container>
-      </Box>
+      <Layout pageTitle="Home Page">
+        <Hero />
+        <AboutMe />
+        <Services />
 
-      {/* Contact Form */}
-      <Contact />
-      <CssBaseline />
+        {/* Portfolio Section */}
+        <Box className={classess.ContainerStyles}>
+          <Container>
+            <Typography
+              align="center"
+              variant="h3"
+              className={classess.TypographyStyles}
+            >
+              Portfolio
+            </Typography>
+            <Index />
+          </Container>
+        </Box>
+
+        {/* Contact Form */}
+        <Contact />
+        <CssBaseline />
+      </Layout>
     </>
   );
 };

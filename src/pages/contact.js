@@ -5,8 +5,9 @@ import Contact from "../components/Home/contact";
 const contact = () => {
   return (
     <>
-      <Layout pageTitle="Contact" />
-      <Contact />
+      <Layout pageTitle="Contact">
+        <Contact />
+      </Layout>
     </>
   );
 };

@@ -15,11 +15,11 @@ const useStyles = makeStyles((theme) => ({
       width: "80%",
     },
 
-    "& .MuiInputBase-input": {
+    "& input": {
       color: "#fff",
     },
 
-    "& .MuiFormLabel-root": {
+    "& label": {
       color: "#fff",
     },
 
@@ -63,12 +63,12 @@ const useStyles = makeStyles((theme) => ({
 const Contact = () => {
   const classess = useStyles();
   return (
-    <Box className={classess.bgColor}>
+    <Box className={classess.bgColor} component="section">
       <Grid container>
         <Grid item xs={1} />
         <Grid item sm={12} md={5} className={classess.Title}>
           <Typography variant="h3" className={classess.TitleHeading}>
-            Contact
+            Contact {` `}
             <Typography
               component="span"
               variant="h2"
@@ -90,6 +90,8 @@ const Contact = () => {
               flexDirection: "column",
               justifyContent: "center",
               padding: "40px 0px 64px 0px",
+              boxShadow:
+                "0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 5px 8px 0px rgb(0 0 0 / 14%), 0px 1px 14px 0px rgb(0 0 0 / 12%)",
             }}
           >
             <TextField id="standard-basic" label="Name" color="secondary" />

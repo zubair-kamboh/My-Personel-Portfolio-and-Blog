@@ -7,36 +7,36 @@ import { Link } from "gatsby-theme-material-ui";
 const blog = ({ data }) => {
   return (
     <>
-      <Layout pageTitle="Blog" />
-      <Typography
-        variant="h2"
-        align="center"
-        gutterBotto
-        style={{ marginTop: "15px" }}
-        color="primary"
-      >
-        Blog
-      </Typography>
+      <Layout pageTitle="Blog">
+        <Typography
+          variant="h2"
+          align="center"
+          gutterBotto
+          style={{ marginTop: "15px" }}
+          color="primary"
+        >
+          Blog
+        </Typography>
 
-      <Container maxWidth="sm">
-        <Paper>
-          <Box p={2} marginBottom="50px">
-            <Typography variant="h3">
-              Here is
-              <Box component="span" color="secondary.main">
-                my blog
-              </Box>
-            </Typography>
-            <Typography variant="body2">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio
-              consequuntur et adipisci aliquid ea, iure cupiditate modi. Maxime
-              quia neque quod ab necessitatibus corrupti delectus.
-            </Typography>
-          </Box>
-        </Paper>
-      </Container>
+        <Container maxWidth="sm">
+          <Paper>
+            <Box p={2} marginBottom="50px">
+              <Typography variant="h3">
+                Here is
+                <Box component="span" color="secondary.main">
+                  my blog
+                </Box>
+              </Typography>
+              <Typography variant="body2">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio
+                consequuntur et adipisci aliquid ea, iure cupiditate modi.
+                Maxime quia neque quod ab necessitatibus corrupti delectus.
+              </Typography>
+            </Box>
+          </Paper>
+        </Container>
 
-      {/* <Container fixed style={{ marginBottom: "70px", marginTop: "40px" }}>
+        {/* <Container fixed style={{ marginBottom: "70px", marginTop: "40px" }}>
         <Box>
           <Typography variant="h3">This is my heading</Typography>
           <Typography variant="subtitle2">
@@ -57,23 +57,32 @@ const blog = ({ data }) => {
         </Box>
       </Container> */}
 
-      {data.allMarkdownRemark.edges.map((post) => {
-        return (
-          <Box key={post.node.id} width="50%" boxShadow={2} margin="auto" p={5}>
-            <Typography variant="h5">{post.node.frontmatter.title}</Typography>
-            <Typography variant="body1">
-              Written by {post.node.frontmatter.author}
-            </Typography>
-            <Link
-              underline="none"
-              color="error"
-              to={post.node.frontmatter.path}
+        {data.allMarkdownRemark.edges.map((post) => {
+          return (
+            <Box
+              key={post.node.id}
+              width="50%"
+              boxShadow={2}
+              margin="auto"
+              p={5}
             >
-              Go to post
-            </Link>
-          </Box>
-        );
-      })}
+              <Typography variant="h5">
+                {post.node.frontmatter.title}
+              </Typography>
+              <Typography variant="body1">
+                Written by {post.node.frontmatter.author}
+              </Typography>
+              <Link
+                underline="none"
+                color="error"
+                to={post.node.frontmatter.path}
+              >
+                Go to post
+              </Link>
+            </Box>
+          );
+        })}
+      </Layout>
     </>
   );
 };
