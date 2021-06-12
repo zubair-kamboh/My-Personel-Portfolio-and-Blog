@@ -38,24 +38,18 @@ const useStyles = makeStyles((theme) => ({
 const cardContent = [
   {
     title: "React JS Website",
-    description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Optio natus corporis sint error nulla culpa quibusdam, hic
-                  facilis officia enim possimus molestias quisquam repellendus
-                  doloribus earum eaque id! Provident, nostrum!`,
+    description: `✅ Single page application using Reactjs, Gatsby headless CMS, Nextjs and Material UI. 
+    ✅ Clean Code
+    ✅ 100% SEO friendly
+    ✅ Lightning fast and incredible user experience`,
   },
   {
     title: "Wordpress Website",
-    description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Optio natus corporis sint error nulla culpa quibusdam, hic
-                  facilis officia enim possimus molestias quisquam repellendus
-                  doloribus earum eaque id! Provident, nostrum!`,
+    description: `✅ Wordpress theme development, custom coded php website. Modern landing page. Professional and Responsive site. Safe and secure dynamic web content using php, jquery and javascript.`,
   },
   {
     title: "SEO & Optimization",
-    description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Optio natus corporis sint error nulla culpa quibusdam, hic
-                  facilis officia enim possimus molestias quisquam repellendus
-                  doloribus earum eaque id! Provident, nostrum!`,
+    description: `✅ Seo optimized website with fast response rate. 90%+ score on Google Page Speed insights. Content optimization, meta tags, Yoast SEO and much more`,
   },
 ];
 

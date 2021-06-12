@@ -36,8 +36,8 @@ const hero = () => {
                     variant="subtitle2"
                     style={{ fontSize: "1rem", paddingTop: ".8rem" }}
                   >
-                    Get your besiness website up and running today and move your
-                    business online
+                    We build great web applications and Material designs using
+                    React
                   </Typography>
                   <Button
                     variant="contained"

@@ -1,13 +1,8 @@
 import * as React from "react";
 import Layout from "../components/layout";
 import Img from "../images/lake.jpg";
-import {
-  Typography,
-  Box,
-  Container,
-  makeStyles,
-  Divider,
-} from "@material-ui/core";
+import { Typography, Box, Container, makeStyles } from "@material-ui/core";
+import SEO from "../components/seo";
 
 const useStyles = makeStyles((theme) => ({
   sectionStyles: {
@@ -33,7 +28,8 @@ const useStyles = makeStyles((theme) => ({
 const AboutPage = () => {
   const classes = useStyles();
   return (
-    <Layout pageTitle="About Me">
+    <Layout>
+      <SEO title="About Me" />
       <Box component="section" className={classes.sectionStyles}>
         <Container maxWidth="md">
           <Typography variant="h2" className={classes.headingStyles}>

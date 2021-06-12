@@ -3,8 +3,9 @@ import Layout from "../components/layout";
 import Hero from "../components/Home/hero";
 import AboutMe from "../components/Home/aboutMe";
 import Services from "../components/Home/services";
-import Index from "../components/Services/Portfolio/index";
+import Index from "../components/PortfolioCmp/Portfolio/index";
 import Contact from "../components/Home/contact";
+import SEO from "../components/seo";
 
 import {
   CssBaseline,
@@ -30,7 +31,8 @@ const IndexPage = () => {
   const classess = useStyles();
   return (
     <>
-      <Layout pageTitle="Home Page">
+      <Layout>
+        <SEO title="Home page" />
         <Hero />
         <AboutMe />
         <Services />

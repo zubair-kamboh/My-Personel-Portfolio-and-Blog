@@ -1,6 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: "gatsby_beginner",
+    title: "Zubair Ali Blogs",
+    description: "Best web development services remotely in Pakistan",
+    url: "https://zubairali.guru",
+    image: "./src/images/web-developer.png",
+    twitterUsername: "@Zubairkamboh901",
+    author: "Zubair Ali",
   },
 
   plugins: [
@@ -47,6 +52,7 @@ module.exports = {
       },
     },
 
+    `gatsby-plugin-material-ui`,
     `gatsby-transformer-remark`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,

@@ -74,12 +74,18 @@ const Index = () => {
           {node.technologies && (
             <div className="item__technologies">
               {node.technologies.map((technology, index) => (
-                <p key={index}>{technology}</p>
+                <p style={{ margin: "12px 10px" }} key={index}>
+                  {technology}
+                </p>
               ))}
             </div>
           )}
 
-          {node.link && <a href={node.link}>Open website</a>}
+          {node.link && (
+            <a href={node.link} target="_blank">
+              Open website
+            </a>
+          )}
         </div>
       ))}
 

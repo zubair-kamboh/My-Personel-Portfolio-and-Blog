@@ -1,63 +1,105 @@
-import { graphql } from "gatsby";
 import React from "react";
+import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import { Typography, Box, Container, Paper } from "@material-ui/core";
-import { Link } from "gatsby-theme-material-ui";
+import SEO from "../components/seo";
+import { Button, CardActionArea } from "gatsby-theme-material-ui";
+import Img from "gatsby-image";
+import {
+  Typography,
+  Box,
+  Container,
+  makeStyles,
+  Card,
+  CardContent,
+  CardActions,
+} from "@material-ui/core";
 
-const blog = ({ data }) => {
+const useStyles = makeStyles((theme) => ({
+  section: {
+    margin: `${theme.spacing(4)}px 0px ${theme.spacing(14)}px 0px`,
+    // "2rem 0rem 7rem 0rem"
+  },
+
+  innerContainer: {
+    backgroundColor: "#fff",
+    padding: theme.spacing(8),
+  },
+
+  card: {
+    marginBottom: theme.spacing(3),
+  },
+
+  media: {
+    height: 400,
+    objectFit: "contain",
+    width: "100%",
+  },
+}));
+
+const Blog = ({ data }) => {
+  const classes = useStyles();
+
   return (
-    <>
-      <Layout pageTitle="Blog">
-        <Typography
-          variant="h2"
-          align="center"
-          gutterBotto
-          style={{ marginTop: "15px" }}
-          color="primary"
-        >
-          Blog
-        </Typography>
+    <Layout>
+      <SEO title="Blog" />
+      <Box component="section" className={classes.section}>
+        <Container maxWidth="md">
+          <Box className={classes.innerContainer}>
+            <Typography gutterBottom variant="h3" color="primary">
+              Here you’ll find past articles & blog posts.
+            </Typography>
 
-        <Container maxWidth="sm">
-          <Paper>
-            <Box p={2} marginBottom="50px">
-              <Typography variant="h3">
-                Here is
-                <Box component="span" color="secondary.main">
-                  my blog
-                </Box>
-              </Typography>
-              <Typography variant="body2">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio
-                consequuntur et adipisci aliquid ea, iure cupiditate modi.
-                Maxime quia neque quod ab necessitatibus corrupti delectus.
-              </Typography>
-            </Box>
-          </Paper>
+            {data.allMarkdownRemark.edges.map((post) => {
+              return (
+                <Card className={classes.card} key={post.node.id}>
+                  <CardActionArea to={post.node.frontmatter.path}>
+                    <Img
+                      fluid={
+                        post.node.frontmatter.featuredImage.childImageSharp
+                          .fluid
+                      }
+                      alt={post.node.frontmatter.title}
+                      className={classes.media}
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        {post.node.frontmatter.title}
+                      </Typography>
+                      <Typography gutterBottom>
+                        Written By {post.node.frontmatter.author} on{" "}
+                        {post.node.frontmatter.date}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="textSecondary"
+                        component="p"
+                      >
+                        {post.node.excerpt}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+
+                  <CardActions>
+                    <Button
+                      size="small"
+                      color="primary"
+                      to={post.node.frontmatter.path}
+                    >
+                      Read More
+                    </Button>
+                  </CardActions>
+                </Card>
+              );
+            })}
+          </Box>
         </Container>
+      </Box>
+    </Layout>
+  );
+};
 
-        {/* <Container fixed style={{ marginBottom: "70px", marginTop: "40px" }}>
-        <Box>
-          <Typography variant="h3">This is my heading</Typography>
-          <Typography variant="subtitle2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus,
-            assumenda. Sequi rerum consectetur voluptates, earum voluptatibus
-            saepe eius commodi sunt inventore, provident molestiae facilis
-            sapiente in aperiam maxime, suscipit optio recusandae tempora
-            corrupti accusamus perspiciatis? Excepturi itaque totam modi
-            recusandae illo. Laudantium ab, similique, enim non adipisci nostrum
-            consequatur, cum a expedita eligendi corporis repellendus sequi
-            ullam neque corrupti. Ratione nemo nihil nisi adipisci tempora eaque
-            voluptatem rerum esse amet molestias. Facere magni aspernatur labore
-            dolore, incidunt vero rerum quia corrupti alias quibusdam voluptate!
-            Nihil eveniet excepturi consectetur voluptatum, repudiandae
-            voluptate quidem, maxime quae veniam, voluptatibus porro iure
-            facilis culpa?
-          </Typography>
-        </Box>
-      </Container> */}
-
-        {data.allMarkdownRemark.edges.map((post) => {
+{
+  /* {data.allMarkdownRemark.edges.map((post) => {
           return (
             <Box
               key={post.node.id}
@@ -81,24 +123,28 @@ const blog = ({ data }) => {
               </Link>
             </Box>
           );
-        })}
-      </Layout>
-    </>
-  );
-};
+        })} */
+}
 
 export const pageQuery = graphql`
   query BlogIndexQuery {
     allMarkdownRemark {
       edges {
         node {
-          excerpt
           frontmatter {
             author
             date
             path
             title
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
+          excerpt
           id
         }
       }
@@ -106,4 +152,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default blog;
+export default Blog;

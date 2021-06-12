@@ -1,14 +1,20 @@
 [
   {
-    "name": "Portfolio item 1",
-    "img": "./img/1.jpg",
-    "link": "https://www.google.com",
-    "technologies": ["React", "GatsbyJS"]
+    "name": "Netflix Clone",
+    "img": "./img/Gatsby-Netflix-Clone.png",
+    "link": "https://netflix-clone-10f56.web.app/",
+    "technologies": ["React", "JSON", "API"]
   },
   {
-    "name": "Portfolio item 2",
-    "img": "./img/1.jpg",
-    "link": "https://www.google.com",
-    "technologies": ["React", "GatsbyJS", "Netlify CMS"]
+    "name": "Todo List",
+    "img": "./img/todo-app.png",
+    "link": "https://todo-48cce.web.app/",
+    "technologies": ["React", "LocalStorage", "Netlify CMS"]
+  },
+  {
+    "name": "Task Tracker App",
+    "img": "./img/task-tracker.png",
+    "link": "https://task-tracker-7ec8e.web.app/",
+    "technologies": ["React", "Bootstrap", "Json Api"]
   }
 ]

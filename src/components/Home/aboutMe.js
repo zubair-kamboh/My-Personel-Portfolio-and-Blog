@@ -52,11 +52,15 @@ const AboutMe = () => {
             <Grid item xs={12} md={6}>
               <Box>
                 <Typography>
-                  <span>✅</span> PROFESSIONAL FRONT END WEBSITE DEVELOPER
-                  specializing in Javascript, React.Js, and the Front end
-                  technologies. Extensive Experience as a Wordpress Php
-                  development methodically identifying and resolving complex
-                  underlying website problems, using a vast variety of tools and
+                  I'm Zubair{" "}
+                  <span role="img" aria-label="Qualified Web Develop">
+                    ✅
+                  </span>{" "}
+                  A PROFESSIONAL FRONT END WEBSITE DEVELOPER specializing in
+                  Javascript, React.Js, and the Front end technologies.
+                  Extensive Experience as a Wordpress Php development
+                  methodically identifying and resolving complex underlying
+                  website problems, using a vast variety of tools and
                   techniques. I have solved numerous wordpress and code
                   Performance issues such as Speed Optimization, SEO, as well as
                   often re-engineered immensely complex designs and code,
