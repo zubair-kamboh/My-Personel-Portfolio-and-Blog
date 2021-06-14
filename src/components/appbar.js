@@ -4,7 +4,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import { Typography } from "@material-ui/core";
+
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Link, Button, IconButton } from "gatsby-theme-material-ui";
 // ICONS
@@ -18,14 +18,35 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+
+  logo: {
+    color: "#fff",
+    flexGrow: 1,
+    fontSize: "1.8",
+  },
+
   socialIcon: {
     flexGrow: 1,
     display: "flex",
     justifyContent: "flex-end",
+
+    "& .MuiSvgIcon-root-122": {
+      [theme.breakpoints.down("md")]: {
+        fontSize: "1.3rem",
+      },
+
+      [theme.breakpoints.up("md")]: {
+        fontSize: "1.8rem",
+      },
+    },
   },
+
   menuButton: {
-    marginRight: theme.spacing(2),
+    [theme.breakpoints.down("md")]: {
+      order: 2,
+    },
   },
+
   title: {
     flexGrow: 1,
     color: "white",
@@ -76,16 +97,15 @@ const Appbar = () => {
     <div className={classes.root}>
       <AppBar position="fixed">
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            Zubair Blog
-          </Typography>
+          <Link className={classes.logo} to="/" underline="none">
+            Zubair Ali
+          </Link>
           {auth && (
-            <div>
+            <div className={classes.menuButton}>
               {matches ? (
                 <>
                   <IconButton
                     edge="start"
-                    className={classes.menuButton}
                     color="inherit"
                     aria-label="menu"
                     onClick={handleMenu}
@@ -151,7 +171,7 @@ const Appbar = () => {
               to="https://www.linkedin.com/in/zubair-ali-b8281b174/"
               target="_blank"
             >
-              <LinkedInIcon style={{ color: "white", fontSize: 30 }} />
+              <LinkedInIcon />
             </IconButton>
 
             <IconButton
@@ -161,11 +181,7 @@ const Appbar = () => {
               to="https://github.com/zubair-kamboh"
               target="_blank"
             >
-              <GitHubIcon
-                style={{ color: "white", fontSize: 30 }}
-                fontSize="large"
-               
-              />
+              <GitHubIcon />
             </IconButton>
             <IconButton
               edge="start"
@@ -174,10 +190,7 @@ const Appbar = () => {
               to="https://www.facebook.com/zubair.kamboh.144/"
               target="_blank"
             >
-              <FacebookIcon
-                style={{ color: "white", fontSize: 30 }}
-                fontSize="large"
-              />
+              <FacebookIcon />
             </IconButton>
           </div>
         </Toolbar>

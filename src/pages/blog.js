@@ -22,7 +22,12 @@ const useStyles = makeStyles((theme) => ({
 
   innerContainer: {
     backgroundColor: "#fff",
-    padding: theme.spacing(8),
+    [theme.breakpoints.up("md")]: {
+      padding: theme.spacing(8),
+    },
+    [theme.breakpoints.down("md")]: {
+      padding: theme.spacing(0),
+    },
   },
 
   card: {

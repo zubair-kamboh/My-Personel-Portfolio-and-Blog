@@ -53,10 +53,15 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    textAlign: "center",
+    width: "100%",
   },
 
   TitleHeading: {
     letterSpacing: theme.spacing(1),
+    [theme.breakpoints.down("md")]: {
+      marginBottom: theme.spacing(3),
+    },
   },
 }));
 
@@ -65,7 +70,7 @@ const Contact = () => {
   return (
     <Box className={classess.bgColor} component="section">
       <Grid container>
-        <Grid item xs={1} />
+        <Grid item xs={0} md={1} />
         <Grid item sm={12} md={5} className={classess.Title}>
           <Typography variant="h3" className={classess.TitleHeading}>
             Contact {` `}
@@ -107,7 +112,7 @@ const Contact = () => {
             </Button>
           </form>
         </Grid>
-        <Grid item xs={1} />
+        <Grid item xs={0} md={1} />
       </Grid>
     </Box>
   );

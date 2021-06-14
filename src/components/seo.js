@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useLocation } from "@reach/router";
 import { useStaticQuery, graphql } from "gatsby";
-const SEO = ({ title, description, image, author }) => {
+
+const SEO = ({ title, description, image, author, keywords, ogType }) => {
   const { pathname } = useLocation();
   const { site } = useStaticQuery(query);
 
@@ -13,23 +14,28 @@ const SEO = ({ title, description, image, author }) => {
     siteUrl,
     defaultImage,
     twitterUsername,
-    siteAuthor,
+    defaultAuthor,
+    defaultKeywords,
+    defaultOgType,
   } = site.siteMetadata;
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
     image: `${siteUrl}${image || defaultImage}`,
     url: `${siteUrl}${pathname}`,
-    author: siteAuthor || author,
+    author: author || defaultAuthor,
+    keywords: keywords || defaultKeywords,
+    ogType: ogType || defaultOgType,
   };
 
   return (
-    <Helmet title={seo.title} /* titleTemplate={titleTemplate} */>
+    <Helmet title={seo.title}>
       <meta name="description" content={seo.description} />
+      <meta name="keywords" content={seo.keywords} />
       <meta name="image" content={seo.image} />
-      {seo.url && <meta property="og:url" content={seo.url} />}
-      {/* {(article ? true : null) && <meta property="og:type" content="article" />} */}
       {seo.title && <meta property="og:title" content={seo.title} />}
+      {seo.url && <meta property="og:url" content={seo.url} />}
+      <meta property="og:type" content={seo.ogType} />
       {seo.description && (
         <meta property="og:description" content={seo.description} />
       )}
@@ -57,7 +63,9 @@ const query = graphql`
         siteUrl: url
         defaultImage: image
         twitterUsername
-        author
+        defaultAuthor: author
+        defaultKeywords: keywords
+        defaultOgType: ogType
       }
     }
   }

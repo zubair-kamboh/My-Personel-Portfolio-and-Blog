@@ -20,8 +20,15 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: "100%",
-    height: "100%",
+
+    "& .MuiGrid-root-142": {
+      flexBasis: "auto",
+      marginBottom: theme.spacing(3),
+
+      "& img": {
+        width: "200px",
+      },
+    },
   },
 }));
 

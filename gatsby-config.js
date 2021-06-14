@@ -1,11 +1,15 @@
 module.exports = {
   siteMetadata: {
-    title: "Zubair Ali Blogs",
-    description: "Best web development services remotely in Pakistan",
-    url: "https://zubairali.guru",
-    image: "./src/images/web-developer.png",
+    title: "Zubair Ali Blogs and Portfolio Website",
+    description:
+      "Zubair Ali Blogs is a blogging platform that also provides the best web development services remotely in Pakistan, we are a Freelance based agency that helps clients build any type of website, web apps, SEO based services.",
+    url: "http://zubairkamboh.com",
+    keywords:
+      "Zubair Ali Blog, Zubair Ali Portfolio, Best Freelance Services Available in Pakistan, Freelancer, Blogger, Best Reactjs developer in Pakistan",
+    image: "/src/images/zubair-picture.png",
     twitterUsername: "@Zubairkamboh901",
     author: "Zubair Ali",
+    ogType: "website",
   },
 
   plugins: [

@@ -13,7 +13,12 @@ const useStyles = makeStyles((theme) => ({
 
   innerContainer: {
     backgroundColor: "#fff",
-    padding: theme.spacing(8),
+    [theme.breakpoints.up("md")]: {
+      padding: theme.spacing(8),
+    },
+    [theme.breakpoints.down("md")]: {
+      padding: theme.spacing(0),
+    },
   },
 
   card: {
@@ -33,7 +38,13 @@ export default function BlogPost({ data }) {
 
   return (
     <Layout>
-      <SEO title="Blog" />
+      <SEO
+        title={post.frontmatter.title}
+        description={post.excerpt}
+        keywords={post.frontmatter.keywords}
+        ogType="article"
+        image={post.frontmatter.featuredImage.childImageSharp.fluid.src}
+      />
       <article>
         <Box component="section" className={classes.section}>
           <Container maxWidth="md">
@@ -74,11 +85,13 @@ export const query = graphql`
   query ($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
+      excerpt
       frontmatter {
         author
         date
         path
         title
+        keywords
         featuredImage {
           childImageSharp {
             fluid(maxWidth: 800) {

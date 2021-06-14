@@ -3,7 +3,8 @@ title: "How to start freelancing carrier with zero investment?"
 featuredImage: "./1.jpg"
 author: "Zubair Ali"
 date: "2-2-2021"
-path: "/first-post"
+path: "/blog/first-post"
+keywords: "My Post, My Blog"
 ---
 
 What is Lorem Ipsum?

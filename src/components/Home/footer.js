@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
 
   titleStyles: {
     padding: `${theme.spacing(2)}px 0px`,
+    [theme.breakpoints.down("md")]: {
+      textAlign: "center",
+    },
   },
 
   socialIcon: {
@@ -49,7 +52,7 @@ const Footer = () => {
     <>
       <Divider />
       <Grid container>
-        <Grid item xs={1} />
+        <Grid item xs={0} md={1} />
         <Grid item sm={10} md={4} lg={4}>
           <Box>
             <Typography
@@ -67,7 +70,7 @@ const Footer = () => {
             </Typography>
           </Box>
         </Grid>
-        <Grid item xs={10} sm={4}>
+        <Grid item xs={6} sm={4}>
           <Typography
             variant="h5"
             className={classes.titleStyles}
@@ -85,7 +88,7 @@ const Footer = () => {
             })}
           </Box>
         </Grid>
-        <Grid item xs={10} sm={2}>
+        <Grid item xs={6} sm={2}>
           <Typography
             variant="h5"
             className={classes.titleStyles}
@@ -144,7 +147,7 @@ const Footer = () => {
             </IconButton>
           </div>
         </Grid>
-        <Grid item xs={1} />
+        <Grid item xs={0} md={1} />
       </Grid>
     </>
   );
