@@ -2,13 +2,13 @@ import React from "react";
 import Layout from "../components/layout";
 import Index from "../components/PortfolioCmp/Portfolio/index";
 import { Typography, Container, Box } from "@material-ui/core";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 
 const Portfolio = () => {
   return (
     <>
       <Layout>
-        <SEO title="Portfolio" />
+        <Seo title="Portfolio" />
         <Container>
           <Typography
             align="center"

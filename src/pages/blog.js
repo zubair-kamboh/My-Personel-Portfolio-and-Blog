@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import { Button, CardActionArea } from "gatsby-theme-material-ui";
 import Img from "gatsby-image";
 import {
@@ -46,7 +46,7 @@ const Blog = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Blog" />
+      <Seo title="Blog" />
       <Box component="section" className={classes.section}>
         <Container maxWidth="md">
           <Box className={classes.innerContainer}>
@@ -102,34 +102,6 @@ const Blog = ({ data }) => {
     </Layout>
   );
 };
-
-{
-  /* {data.allMarkdownRemark.edges.map((post) => {
-          return (
-            <Box
-              key={post.node.id}
-              width="50%"
-              boxShadow={2}
-              margin="auto"
-              p={5}
-            >
-              <Typography variant="h5">
-                {post.node.frontmatter.title}
-              </Typography>
-              <Typography variant="body1">
-                Written by {post.node.frontmatter.author}
-              </Typography>
-              <Link
-                underline="none"
-                color="error"
-                to={post.node.frontmatter.path}
-              >
-                Go to post
-              </Link>
-            </Box>
-          );
-        })} */
-}
 
 export const pageQuery = graphql`
   query BlogIndexQuery {

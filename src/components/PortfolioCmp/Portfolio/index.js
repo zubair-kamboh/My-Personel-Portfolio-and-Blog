@@ -57,8 +57,11 @@ const Index = () => {
       {items.map(({ node }, index) => (
         <div
           key={index}
+          role="button"
+          tabIndex={0}
           className="portfolio__item"
           onClick={() => onClick(index)}
+          onKeyDown={() => onClick(index)}
         >
           {node.img && (
             <div className="item__image">
@@ -82,7 +85,7 @@ const Index = () => {
           )}
 
           {node.link && (
-            <a href={node.link} target="_blank">
+            <a href={node.link} target="_blank" rel="noreferrer">
               Open website
             </a>
           )}
@@ -91,15 +94,30 @@ const Index = () => {
 
       {modal && (
         <div className={`portfolio__modal`}>
-          <div className="modal__overlay" onClick={() => setModal(false)} />
+          <div
+            role="button"
+            tabIndex={0}
+            aria-label="Mute volume"
+            className="modal__overlay"
+            onClick={() => setModal(false)}
+            onKeyDown={() => setModal(false)}
+          />
 
-          <button onClick={() => previous()} className="modal__previous" />
+          <button
+            onClick={() => previous()}
+            className="modal__previous"
+            aria-label="Mute volume"
+          />
 
           <div
             className={`modal__content modal__content--slide-${slideSide}`}
             onAnimationEnd={() => setSlideSide(null)}
           >
-            <button onClick={() => setModal(!modal)} className="modal__close" />
+            <button
+              onClick={() => setModal(!modal)}
+              className="modal__close"
+              aria-label="Mute volume"
+            />
 
             {activeSlide.img && (
               <div className="item__image">
@@ -122,7 +140,11 @@ const Index = () => {
             {activeSlide.link && <a href={activeSlide.link}>Open website</a>}
           </div>
 
-          <button onClick={() => next()} className="modal__next" />
+          <button
+            onClick={() => next()}
+            className="modal__next"
+            aria-label="Mute volume"
+          />
         </div>
       )}
     </section>

@@ -63,10 +63,9 @@ const Footer = () => {
               Zubair Ali Blog
             </Typography>
             <Typography>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit
-              veritatis laboriosam voluptatem veniam tenetur labore accusantium
-              fugiat quis nam ratione nobis quae, voluptates optio
-              exercitationem dignissimos eligendi sed beatae! Alias!
+              We’re a full-time web development service provider with over 3
+              years of combined experience, founded and run by Zubair Ali. We
+              create web products for the help and growth of your business.
             </Typography>
           </Box>
         </Grid>

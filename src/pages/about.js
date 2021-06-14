@@ -2,7 +2,7 @@ import * as React from "react";
 import Layout from "../components/layout";
 import Img from "../images/lake.jpg";
 import { Typography, Box, Container, makeStyles } from "@material-ui/core";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 
 const useStyles = makeStyles((theme) => ({
   sectionStyles: {
@@ -29,7 +29,7 @@ const AboutPage = () => {
   const classes = useStyles();
   return (
     <Layout>
-      <SEO title="About Me" />
+      <Seo title="About Me" />
       <Box component="section" className={classes.sectionStyles}>
         <Container maxWidth="md">
           <Typography variant="h2" className={classes.headingStyles}>

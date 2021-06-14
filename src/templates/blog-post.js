@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import Img from "gatsby-image";
 import { Typography, Box, Container, makeStyles } from "@material-ui/core";
 
@@ -38,7 +38,7 @@ export default function BlogPost({ data }) {
 
   return (
     <Layout>
-      <SEO
+      <Seo
         title={post.frontmatter.title}
         description={post.excerpt}
         keywords={post.frontmatter.keywords}
