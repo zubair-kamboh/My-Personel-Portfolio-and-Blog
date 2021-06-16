@@ -38,10 +38,7 @@ const useStyles = makeStyles((theme) => ({
 const cardContent = [
   {
     title: "React JS Website",
-    description: `✅ Single page application using Reactjs, Gatsby headless CMS, Nextjs and Material UI. 
-    ✅ Clean Code
-    ✅ 100% SEO friendly
-    ✅ Lightning fast and incredible user experience`,
+    description: `✅ Single page application using Reactjs, Gatsby headless CMS, Nextjs and Material UI, Clean Code, 100% SEO friendly, Lightning fast and incredible UI/UX design and wondersful User Experience`,
   },
   {
     title: "Wordpress Website",
@@ -49,7 +46,7 @@ const cardContent = [
   },
   {
     title: "SEO & Optimization",
-    description: `✅ Seo optimized website with fast response rate. 90%+ score on Google Page Speed insights. Content optimization, meta tags, Yoast SEO and much more`,
+    description: `✅ Seo optimized website with fast response rate. 90%+ score on Google Page Speed insights. Content optimization, Speed optimization, On Page/Off page SEO, meta tags, Yoast SEO and much more`,
   },
 ];
 

@@ -1,6 +1,4 @@
 import React from "react";
-import { useFormik } from "formik";
-import * as yup from "yup";
 import {
   Box,
   Typography,
@@ -8,20 +6,7 @@ import {
   TextField,
   makeStyles,
   Grid,
-  TextareaAutosize,
 } from "@material-ui/core";
-
-const validationSchema = yup.object({
-  username: yup.string("Enter your Full Name").required("Username is required"),
-  email: yup
-    .string("Enter your email")
-    .email("Enter a valid email")
-    .required("Email is required"),
-  message: yup
-    .string("Enter your Message")
-    .min(8, "Message should be of minimum 30 characters length")
-    .required("Message is required"),
-});
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -78,24 +63,10 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: theme.spacing(3),
     },
   },
-
-  textarea: {},
 }));
 
 const Contact = () => {
   const classess = useStyles();
-
-  // const formik = useFormik({
-  //   initialValues: {
-  //     username: "",
-  //     email: "",
-  //     message: "",
-  //   },
-  //   validationSchema: validationSchema,
-  //   onSubmit: (values) => {
-  //     alert(JSON.stringify(values, null, 2));
-  //   },
-  // });
 
   return (
     <Box className={classess.bgColor} component="section">
@@ -120,7 +91,6 @@ const Contact = () => {
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             className={classess.root}
-            // onSubmit={formik.handleSubmit}
             style={{
               background: "#1F426B",
               borderRadius: "10px",
