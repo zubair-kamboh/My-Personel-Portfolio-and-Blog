@@ -116,8 +116,9 @@ const Contact = () => {
         <Grid item xs={12} sm={12} md={5}>
           <form
             name="contact"
-            method="POST"
+            method="post"
             data-netlify="true"
+            data-netlify-honeypot="bot-field"
             className={classess.root}
             autoComplete="off"
             onSubmit={formik.handleSubmit}
@@ -132,6 +133,8 @@ const Contact = () => {
                 "0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 5px 8px 0px rgb(0 0 0 / 14%), 0px 1px 14px 0px rgb(0 0 0 / 12%)",
             }}
           >
+            <input type="hidden" name="form-name" value="contact" />
+
             <TextField
               id="standard-basic username"
               name="username"
