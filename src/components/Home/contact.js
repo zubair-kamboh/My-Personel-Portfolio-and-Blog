@@ -85,17 +85,17 @@ const useStyles = makeStyles((theme) => ({
 const Contact = () => {
   const classess = useStyles();
 
-  const formik = useFormik({
-    initialValues: {
-      username: "",
-      email: "",
-      message: "",
-    },
-    validationSchema: validationSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
+  // const formik = useFormik({
+  //   initialValues: {
+  //     username: "",
+  //     email: "",
+  //     message: "",
+  //   },
+  //   validationSchema: validationSchema,
+  //   onSubmit: (values) => {
+  //     alert(JSON.stringify(values, null, 2));
+  //   },
+  // });
 
   return (
     <Box className={classess.bgColor} component="section">
@@ -120,7 +120,7 @@ const Contact = () => {
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             className={classess.root}
-            onSubmit={formik.handleSubmit}
+            // onSubmit={formik.handleSubmit}
             style={{
               background: "#1F426B",
               borderRadius: "10px",
@@ -139,10 +139,6 @@ const Contact = () => {
               name="username"
               label="Full Name"
               color="secondary"
-              value={formik.values.username}
-              onChange={formik.handleChange}
-              error={formik.touched.username && Boolean(formik.errors.username)}
-              helperText={formik.touched.username && formik.errors.username}
             />
 
             <TextField
@@ -150,10 +146,6 @@ const Contact = () => {
               name="email"
               label="Email"
               color="secondary"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              error={formik.touched.email && Boolean(formik.errors.email)}
-              helperText={formik.touched.email && formik.errors.email}
             />
 
             <TextField
@@ -161,10 +153,6 @@ const Contact = () => {
               name="message"
               label="Message"
               color="secondary"
-              value={formik.values.message}
-              onChange={formik.handleChange}
-              error={formik.touched.message && Boolean(formik.errors.message)}
-              helperText={formik.touched.message && formik.errors.message}
             />
 
             <Button
