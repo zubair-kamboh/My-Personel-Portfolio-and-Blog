@@ -116,11 +116,10 @@ const Contact = () => {
         <Grid item xs={12} sm={12} md={5}>
           <form
             name="contact"
-            method="post"
+            method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             className={classess.root}
-            autoComplete="off"
             onSubmit={formik.handleSubmit}
             style={{
               background: "#1F426B",
@@ -140,7 +139,6 @@ const Contact = () => {
               name="username"
               label="Full Name"
               color="secondary"
-              autoComplete
               value={formik.values.username}
               onChange={formik.handleChange}
               error={formik.touched.username && Boolean(formik.errors.username)}
