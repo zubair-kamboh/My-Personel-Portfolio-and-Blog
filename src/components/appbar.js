@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     color: "#fff",
     flexGrow: 1,
-    fontSize: "1.8",
+    fontSize: "1.5rem",
   },
 
   socialIcon: {

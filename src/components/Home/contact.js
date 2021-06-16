@@ -1,4 +1,6 @@
 import React from "react";
+import { useFormik } from "formik";
+import * as yup from "yup";
 import {
   Box,
   Typography,
@@ -6,7 +8,20 @@ import {
   TextField,
   makeStyles,
   Grid,
+  TextareaAutosize,
 } from "@material-ui/core";
+
+const validationSchema = yup.object({
+  username: yup.string("Enter your Full Name").required("Username is required"),
+  email: yup
+    .string("Enter your email")
+    .email("Enter a valid email")
+    .required("Email is required"),
+  message: yup
+    .string("Enter your Message")
+    .min(8, "Message should be of minimum 30 characters length")
+    .required("Message is required"),
+});
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -63,10 +78,25 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: theme.spacing(3),
     },
   },
+
+  textarea: {},
 }));
 
 const Contact = () => {
   const classess = useStyles();
+
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      email: "",
+      message: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
+
   return (
     <Box className={classess.bgColor} component="section">
       <Grid container>
@@ -85,9 +115,12 @@ const Contact = () => {
         </Grid>
         <Grid item xs={12} sm={12} md={5}>
           <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
             className={classess.root}
-            noValidate
             autoComplete="off"
+            onSubmit={formik.handleSubmit}
             style={{
               background: "#1F426B",
               borderRadius: "10px",
@@ -99,12 +132,44 @@ const Contact = () => {
                 "0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 5px 8px 0px rgb(0 0 0 / 14%), 0px 1px 14px 0px rgb(0 0 0 / 12%)",
             }}
           >
-            <TextField id="standard-basic" label="Name" color="secondary" />
-            <TextField id="standard-basic" label="Email" color="secondary" />
-            <TextField id="standard-basic" label="Message" color="secondary" />
+            <TextField
+              id="standard-basic username"
+              name="username"
+              label="Full Name"
+              color="secondary"
+              autoComplete
+              value={formik.values.username}
+              onChange={formik.handleChange}
+              error={formik.touched.username && Boolean(formik.errors.username)}
+              helperText={formik.touched.username && formik.errors.username}
+            />
+
+            <TextField
+              id="standard-basic email"
+              name="email"
+              label="Email"
+              color="secondary"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
+            />
+
+            <TextField
+              id="standard-basic message"
+              name="message"
+              label="Message"
+              color="secondary"
+              value={formik.values.message}
+              onChange={formik.handleChange}
+              error={formik.touched.message && Boolean(formik.errors.message)}
+              helperText={formik.touched.message && formik.errors.message}
+            />
+
             <Button
               variant="contained"
               color="secondary"
+              type="submit"
               fullWidth
               className={classess.SubmitStyles}
             >
