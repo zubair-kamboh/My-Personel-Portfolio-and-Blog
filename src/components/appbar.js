@@ -13,6 +13,9 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import GitHubIcon from "@material-ui/icons/GitHub";
 
 import { makeStyles } from "@material-ui/core/styles";
+import { StaticImage } from "gatsby-plugin-image";
+
+import Logo from "../images/zubair-logo-transparent-1.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,9 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   logo: {
-    color: "#fff",
     flexGrow: 1,
-    fontSize: "1.5rem",
   },
 
   socialIcon: {
@@ -98,7 +99,7 @@ const Appbar = () => {
       <AppBar position="fixed">
         <Toolbar>
           <Link className={classes.logo} to="/" underline="none">
-            Zubair Ali
+            <img src={Logo} width="100" alt="logo" />
           </Link>
           {auth && (
             <div className={classes.menuButton}>

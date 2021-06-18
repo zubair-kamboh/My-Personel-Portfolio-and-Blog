@@ -91,6 +91,7 @@ const Contact = () => {
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             className={classess.root}
+            autoComplete="off"
             style={{
               background: "#1F426B",
               borderRadius: "10px",
