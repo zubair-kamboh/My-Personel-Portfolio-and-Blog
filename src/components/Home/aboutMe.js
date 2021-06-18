@@ -6,7 +6,8 @@ import {
   Grid,
   makeStyles,
 } from "@material-ui/core";
-import { StaticImage } from "gatsby-plugin-image";
+import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
+import Picture from "../../images/zubair-picture.png";
 
 const useStyles = makeStyles((theme) => ({
   sectionStyles: {
@@ -18,16 +19,12 @@ const useStyles = makeStyles((theme) => ({
 
   imgContainerStyle: {
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "space-around",
     alignItems: "center",
 
     "& .MuiGrid-root-142": {
       flexBasis: "auto",
       marginBottom: theme.spacing(3),
-
-      "& img": {
-        width: "200px",
-      },
     },
   },
 }));

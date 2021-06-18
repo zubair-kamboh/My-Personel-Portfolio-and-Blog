@@ -1,30 +1,27 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import "./portfolio.css";
 
 const Index = () => {
-  const data = useStaticQuery(graphql`
-    query HeaderQuery {
-      allDataJson {
-        edges {
-          node {
-            name
-            img {
-              childImageSharp {
-                fluid(maxWidth: 4000) {
-                  ...GatsbyImageSharpFluid_noBase64
-                }
-              }
-            }
-            link
-            technologies
+  const data = useStaticQuery(graphql`query HeaderQuery {
+  allDataJson {
+    edges {
+      node {
+        name
+        img {
+          childImageSharp {
+            gatsbyImageData(placeholder: NONE, layout: FULL_WIDTH)
           }
         }
+        link
+        technologies
       }
     }
-  `);
+  }
+}
+`);
 
   const [modal, setModal] = React.useState(false);
   const [currentIndex, setCurrentIndex] = React.useState(0);
@@ -65,10 +62,9 @@ const Index = () => {
         >
           {node.img && (
             <div className="item__image">
-              <Img
-                fluid={node.img.childImageSharp.fluid}
-                alt={`${node.name} image`}
-              />
+              <GatsbyImage
+                image={node.img.childImageSharp.gatsbyImageData}
+                alt={`${node.name} image`} />
             </div>
           )}
 
@@ -121,10 +117,9 @@ const Index = () => {
 
             {activeSlide.img && (
               <div className="item__image">
-                <Img
-                  fluid={activeSlide.img.childImageSharp.fluid}
-                  alt={`${activeSlide.name} image`}
-                />
+                <GatsbyImage
+                  image={activeSlide.img.childImageSharp.gatsbyImageData}
+                  alt={`${activeSlide.name} image`} />
               </div>
             )}
 

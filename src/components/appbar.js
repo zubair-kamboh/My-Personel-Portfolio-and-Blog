@@ -13,7 +13,6 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import GitHubIcon from "@material-ui/icons/GitHub";
 
 import { makeStyles } from "@material-ui/core/styles";
-import { StaticImage } from "gatsby-plugin-image";
 
 import Logo from "../images/zubair-logo-transparent-1.png";
 

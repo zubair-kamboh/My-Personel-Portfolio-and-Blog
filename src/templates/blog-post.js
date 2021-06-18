@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Typography, Box, Container, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -43,7 +43,7 @@ export default function BlogPost({ data }) {
         description={post.excerpt}
         keywords={post.frontmatter.keywords}
         ogType="article"
-        image={post.frontmatter.featuredImage.childImageSharp.fluid.src}
+        image={post.frontmatter.featuredImage.childImageSharp.gatsbyImageData.src}
       />
       <article>
         <Box component="section" className={classes.section}>
@@ -60,11 +60,10 @@ export default function BlogPost({ data }) {
               <Typography gutterBottom itemProp="writterby">
                 Written By {post.frontmatter.author} on {post.frontmatter.date}
               </Typography>
-              <Img
-                fluid={post.frontmatter.featuredImage.childImageSharp.fluid}
+              <GatsbyImage
+                image={post.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
                 alt={post.frontmatter.title}
-                className={classes.media}
-              />
+                className={classes.media} />
 
               <article>
                 <Typography
@@ -81,25 +80,22 @@ export default function BlogPost({ data }) {
   );
 }
 
-export const query = graphql`
-  query ($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
-      excerpt
-      frontmatter {
-        author
-        date
-        path
-        title
-        keywords
-        featuredImage {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
+export const query = graphql`query ($path: String!) {
+  markdownRemark(frontmatter: {path: {eq: $path}}) {
+    html
+    excerpt
+    frontmatter {
+      author
+      date
+      path
+      title
+      keywords
+      featuredImage {
+        childImageSharp {
+          gatsbyImageData(width: 800, layout: CONSTRAINED)
         }
       }
     }
   }
+}
 `;

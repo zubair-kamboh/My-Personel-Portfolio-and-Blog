@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import { Button, CardActionArea } from "gatsby-theme-material-ui";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import {
   Typography,
   Box,
@@ -58,14 +58,10 @@ const Blog = ({ data }) => {
               return (
                 <Card className={classes.card} key={post.node.id}>
                   <CardActionArea to={post.node.frontmatter.path}>
-                    <Img
-                      fluid={
-                        post.node.frontmatter.featuredImage.childImageSharp
-                          .fluid
-                      }
+                    <GatsbyImage
+                      image={post.node.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
                       alt={post.node.frontmatter.title}
-                      className={classes.media}
-                    />
+                      className={classes.media} />
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="h2">
                         {post.node.frontmatter.title}
@@ -103,30 +99,27 @@ const Blog = ({ data }) => {
   );
 };
 
-export const pageQuery = graphql`
-  query BlogIndexQuery {
-    allMarkdownRemark {
-      edges {
-        node {
-          frontmatter {
-            author
-            date
-            path
-            title
-            featuredImage {
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+export const pageQuery = graphql`query BlogIndexQuery {
+  allMarkdownRemark {
+    edges {
+      node {
+        frontmatter {
+          author
+          date
+          path
+          title
+          featuredImage {
+            childImageSharp {
+              gatsbyImageData(width: 800, layout: CONSTRAINED)
             }
           }
-          excerpt
-          id
         }
+        excerpt
+        id
       }
     }
   }
+}
 `;
 
 export default Blog;
