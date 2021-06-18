@@ -4,17 +4,17 @@ import Toolbar from "@material-ui/core/Toolbar";
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-
+import { makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+
 import { Link, Button, IconButton } from "gatsby-theme-material-ui";
+
 // ICONS
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import GitHubIcon from "@material-ui/icons/GitHub";
 
-import { makeStyles } from "@material-ui/core/styles";
-
-import Logo from "../images/zubair-logo-transparent-1.png";
+import { StaticImage } from "gatsby-plugin-image";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -98,7 +98,11 @@ const Appbar = () => {
       <AppBar position="fixed">
         <Toolbar>
           <Link className={classes.logo} to="/" underline="none">
-            <img src={Logo} width="100" alt="logo" />
+            <StaticImage
+              src="../images/zubair-logo-transparent-1.png"
+              alt="logo"
+              width={110}
+            />
           </Link>
           {auth && (
             <div className={classes.menuButton}>

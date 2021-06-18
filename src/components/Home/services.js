@@ -60,9 +60,9 @@ const Services = () => {
             My Services
           </Typography>
           <Grid container spacing={3}>
-            {cardContent.map((cardItem) => {
+            {cardContent.map((cardItem, id) => {
               return (
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} md={4} key={id}>
                   <Paper elevation={5} className={classess.cardStyles}>
                     <Typography variant="h5">{cardItem.title}</Typography>
                     <Typography>{cardItem.description}</Typography>

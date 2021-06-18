@@ -71,7 +71,7 @@ const Contact = () => {
   return (
     <Box className={classess.bgColor} component="section">
       <Grid container>
-        <Grid item xs={0} md={1} />
+        <Grid item md={1} />
         <Grid item sm={12} md={5} className={classess.Title}>
           <Typography variant="h3" className={classess.TitleHeading}>
             Contact {` `}
@@ -137,7 +137,7 @@ const Contact = () => {
             </Button>
           </form>
         </Grid>
-        <Grid item xs={0} md={1} />
+        <Grid item md={1} />
       </Grid>
     </Box>
   );

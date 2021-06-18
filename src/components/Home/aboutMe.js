@@ -6,8 +6,7 @@ import {
   Grid,
   makeStyles,
 } from "@material-ui/core";
-import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
-import Picture from "../../images/zubair-picture.png";
+import { StaticImage } from "gatsby-plugin-image";
 
 const useStyles = makeStyles((theme) => ({
   sectionStyles: {
