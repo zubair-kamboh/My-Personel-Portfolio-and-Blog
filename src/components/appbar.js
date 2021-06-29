@@ -1,4 +1,7 @@
 import React from "react";
+import { Link, Button, IconButton } from "gatsby-theme-material-ui";
+
+// Components
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -6,8 +9,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-
-import { Link, Button, IconButton } from "gatsby-theme-material-ui";
 
 // ICONS
 import LinkedInIcon from "@material-ui/icons/LinkedIn";

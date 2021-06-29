@@ -1,4 +1,7 @@
 import React from "react";
+import { useForm, Controller } from "react-hook-form";
+
+// Components
 import {
   Box,
   Typography,
@@ -67,6 +70,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Contact = () => {
   const classess = useStyles();
+  const { handleSubmit, control, reset } = useForm();
+
+  const onSubmit = (data) => console.log(data);
 
   return (
     <Box className={classess.bgColor} component="section">
@@ -90,6 +96,7 @@ const Contact = () => {
             method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
+            onSubmit={handleSubmit(onSubmit)}
             className={classess.root}
             autoComplete="off"
             style={{
@@ -105,25 +112,50 @@ const Contact = () => {
           >
             <input type="hidden" name="form-name" value="contact" />
 
-            <TextField
-              id="standard-basic username"
-              name="username"
-              label="Full Name"
-              color="secondary"
+            <Controller
+              name="MyUsername"
+              control={control}
+              defaultValue=""
+              rules={{ required: true }}
+              render={({ field }) => (
+                <TextField
+                  id="standard-basic username"
+                  name="username"
+                  label="Full Name"
+                  color="secondary"
+                  {...field}
+                />
+              )}
             />
-
-            <TextField
-              id="standard-basic email"
-              name="email"
-              label="Email"
-              color="secondary"
+            <Controller
+              name="MyEmail"
+              control={control}
+              defaultValue=""
+              rules={{ required: true }}
+              render={({ field }) => (
+                <TextField
+                  id="standard-basic email"
+                  name="email"
+                  label="Email"
+                  color="secondary"
+                  {...field}
+                />
+              )}
             />
-
-            <TextField
-              id="standard-basic message"
-              name="message"
-              label="Message"
-              color="secondary"
+            <Controller
+              name="MyMessage"
+              control={control}
+              defaultValue=""
+              rules={{ required: true }}
+              render={({ field }) => (
+                <TextField
+                  id="standard-basic message"
+                  name="message"
+                  label="Message"
+                  color="secondary"
+                  {...field}
+                />
+              )}
             />
 
             <Button
