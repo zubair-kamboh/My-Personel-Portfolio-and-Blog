@@ -70,9 +70,22 @@ const useStyles = makeStyles((theme) => ({
 
 const Contact = () => {
   const classess = useStyles();
-  const { handleSubmit, control, reset } = useForm();
+  // const { handleSubmit, control, reset } = useForm({
+  //   defaultValues: {
+  //     username: "",
+  //     email: "",
+  //     message: "",
+  //   },
+  // });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (e) => {
+    console.log(e.target[0].value);
+    if (!e.target[0].value || !e.target[1].value || !e.target[2].value) {
+      alert("Please enter all the field");
+      e.preventDefault();
+      return;
+    }
+  };
 
   return (
     <Box className={classess.bgColor} component="section">
@@ -96,7 +109,7 @@ const Contact = () => {
             method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={onSubmit}
             className={classess.root}
             autoComplete="off"
             style={{
@@ -110,52 +123,33 @@ const Contact = () => {
                 "0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 5px 8px 0px rgb(0 0 0 / 14%), 0px 1px 14px 0px rgb(0 0 0 / 12%)",
             }}
           >
-            <input type="hidden" name="form-name" value="contact" />
+            {/* <input type="hidden" name="form-name" value="contact" /> */}
 
-            <Controller
+            {/* <Controller
               name="MyUsername"
               control={control}
-              defaultValue=""
               rules={{ required: true }}
-              render={({ field }) => (
-                <TextField
-                  id="standard-basic username"
-                  name="username"
-                  label="Full Name"
-                  color="secondary"
-                  {...field}
-                />
-              )}
+              render={({ field }) => ({ ...field })}
+            /> */}
+            <TextField
+              id="standard-basic username"
+              name="username"
+              label="Full Name"
+              color="secondary"
             />
-            <Controller
-              name="MyEmail"
-              control={control}
-              defaultValue=""
-              rules={{ required: true }}
-              render={({ field }) => (
-                <TextField
-                  id="standard-basic email"
-                  name="email"
-                  label="Email"
-                  color="secondary"
-                  {...field}
-                />
-              )}
+
+            <TextField
+              id="standard-basic email"
+              name="email"
+              label="Email"
+              color="secondary"
             />
-            <Controller
-              name="MyMessage"
-              control={control}
-              defaultValue=""
-              rules={{ required: true }}
-              render={({ field }) => (
-                <TextField
-                  id="standard-basic message"
-                  name="message"
-                  label="Message"
-                  color="secondary"
-                  {...field}
-                />
-              )}
+
+            <TextField
+              id="standard-basic message"
+              name="message"
+              label="Message"
+              color="secondary"
             />
 
             <Button
