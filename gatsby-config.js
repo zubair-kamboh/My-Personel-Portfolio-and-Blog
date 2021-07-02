@@ -63,6 +63,20 @@ module.exports = {
       },
     },
 
+    // {
+    //   resolve: `gatsby-transformer-remark`,
+    //   options: {
+    //     plugins: [
+    //       {
+    //         resolve: `gatsby-remark-images`,
+    //         options: {
+    //           maxWidth: 800,
+    //         },
+    //       },
+    //     ],
+    //   },
+    // },
+
     `gatsby-transformer-remark`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,

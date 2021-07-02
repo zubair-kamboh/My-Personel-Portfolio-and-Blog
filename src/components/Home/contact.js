@@ -1,5 +1,4 @@
 import React from "react";
-import { useForm, Controller } from "react-hook-form";
 
 // Components
 import {
@@ -70,27 +69,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Contact = () => {
   const classess = useStyles();
-  // const { handleSubmit, control, reset } = useForm({
-  //   defaultValues: {
-  //     username: "",
-  //     email: "",
-  //     message: "",
-  //   },
-  // });
-
-  const onSubmit = (e) => {
-    console.log(e.target[0].value);
-    if (!e.target[0].value || !e.target[1].value || !e.target[2].value) {
-      alert("Please enter all the field");
-      // e.preventDefault();
-      return;
-    }
-
-    // // Reset the form
-    // e.target[0].value = "";
-    // e.target[1].value = "";
-    // e.target[2].value = "";
-  };
 
   return (
     <Box className={classess.bgColor} component="section">
@@ -114,7 +92,6 @@ const Contact = () => {
             method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            onSubmit={onSubmit}
             className={classess.root}
             autoComplete="off"
             style={{
@@ -130,12 +107,6 @@ const Contact = () => {
           >
             <input type="hidden" name="form-name" value="contact" />
 
-            {/* <Controller
-              name="MyUsername"
-              control={control}
-              rules={{ required: true }}
-              render={({ field }) => ({ ...field })}
-            /> */}
             <TextField
               id="standard-basic username"
               name="username"
