@@ -2,8 +2,6 @@ import React from "react";
 import { Typography, Grid, Box, makeStyles, Divider } from "@material-ui/core";
 import { Button, IconButton } from "gatsby-theme-material-ui";
 
-import { StaticImage } from "gatsby-plugin-image";
-
 // ICONS
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import FacebookIcon from "@material-ui/icons/Facebook";

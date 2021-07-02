@@ -29,9 +29,7 @@ Honestly, it’s impossible to tell. But what we can do is look at what language
 
 <br/>
 
-![which programming language to learn, based on your career](/posts/1.jpg)
-
-<img src="./best-programming-langueges-to-learn-in-2021.jpg" />
+<img src="./Best Programming Language to learn in 2021.png" alt="" />
 
 What programming language should I learn right now? This is a question that is often asked by programmers who are just starting out. Since there are so many languages to choose from, it’s difficult to know which to learn first.
 
